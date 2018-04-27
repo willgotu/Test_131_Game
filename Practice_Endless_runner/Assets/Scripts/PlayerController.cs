@@ -5,6 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float moveSpeed;
+    private float moveSpeedStore;
+    public float speedMultiplier;
+
+    public float speedIncreaseMilestone;
+    private float speedIncreaseMilestoneStore;
+
+    private float speedMilestoneCount;
+    private float speedMilestoneCountStore;
+
     public float jumpForce;
 
     public float jumpTime;
@@ -14,32 +23,52 @@ public class PlayerController : MonoBehaviour {
 
     public bool grounded;
     public LayerMask whatIsGround;
+    public Transform groundCheck;
+    public float groundCheckRadius;
 
     private Collider2D myCollider;
 
     private Animator myAnimator;
 
+    public GameManager theGameManager;
+
 	// Use this for initialization
 	void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
 
-        myCollider = GetComponent<Collider2D>();
+      //  myCollider = GetComponent<Collider2D>();
 
         myAnimator = GetComponent<Animator>();
 
         jumpTimeCounter = jumpTime;
+
+        speedMilestoneCount = speedIncreaseMilestone;
+
+        moveSpeedStore = moveSpeed;
+        speedMilestoneCountStore = speedMilestoneCount;
+        speedIncreaseMilestoneStore = speedIncreaseMilestone;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        grounded = Physics2D.IsTouchingLayers(myCollider, whatIsGround);
+        // Determines when the player is one the ground
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround); 
 
-        myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y);
-
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if(transform.position.x > speedMilestoneCount) //Checks to see if play has reached a milestone
         {
-            if(grounded)
+            speedMilestoneCount += speedIncreaseMilestone; // Increment's milestone
+
+            speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier; // Milestones scale with player speed
+            moveSpeed = moveSpeed * speedMultiplier; // Increases player's speed
+        }
+
+        myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y); // Sets the speed of the player
+
+        // Used to check if player presses the space bar or left mouse buttonv
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) 
+        {
+            if(grounded) // If the player is touching the ground, the player can jump
             {
                 myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
             }   
@@ -67,4 +96,15 @@ public class PlayerController : MonoBehaviour {
         myAnimator.SetFloat("Speed", myRigidBody.velocity.x);
         myAnimator.SetBool("Grounded", grounded);
 	}
+    
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "killbox")
+        {
+            theGameManager.RestartGame();
+            moveSpeed = moveSpeedStore;
+            speedMilestoneCount = speedMilestoneCountStore;
+            speedIncreaseMilestone = speedIncreaseMilestoneStore;
+        }
+    }
 }
