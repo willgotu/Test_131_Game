@@ -8,6 +8,8 @@ public class SettingsMenu : MonoBehaviour {
 
     public AudioMixer audioMixer;
 
+    public AudioSource buttonSound;
+
     public Dropdown resolutionDropdown;
 
     Resolution[] resolutions;

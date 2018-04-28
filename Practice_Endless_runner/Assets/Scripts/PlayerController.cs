@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour {
 
     public GameManager theGameManager;
 
+    public AudioSource jumpSound;
+    public AudioSource deathSound;
+
 	// Use this for initialization
 	void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -76,6 +79,7 @@ public class PlayerController : MonoBehaviour {
             {
                 myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
                 stoppedJumpinng = false;
+                jumpSound.Play();
             }   
             if(!grounded && canDoubleJump)
             {
@@ -83,6 +87,7 @@ public class PlayerController : MonoBehaviour {
                 jumpTimeCounter = jumpTime;
                 stoppedJumpinng = false;
                 canDoubleJump = false;
+                jumpSound.Play();
             }
         }
 
@@ -119,6 +124,7 @@ public class PlayerController : MonoBehaviour {
             moveSpeed = moveSpeedStore;
             speedMilestoneCount = speedMilestoneCountStore;
             speedIncreaseMilestone = speedIncreaseMilestoneStore;
+            deathSound.Play();
         }
     }
 }

@@ -8,9 +8,13 @@ public class pickUpPoints : MonoBehaviour {
 
     private ScoreManager theScoreManager;
 
+    private AudioSource CoinPickUpSound;
+
 	// Use this for initialization
 	void Start () {
         theScoreManager = FindObjectOfType<ScoreManager>();
+
+        CoinPickUpSound = GameObject.Find("CoinPickUpSound").GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -23,7 +27,17 @@ public class pickUpPoints : MonoBehaviour {
         if(other.gameObject.name == "Player")
         {
             theScoreManager.AddScore(scoreToGive);
-            gameObject.SetActive(false); 
+            gameObject.SetActive(false);
+
+            if (CoinPickUpSound.isPlaying)
+            {
+                CoinPickUpSound.Stop();
+                CoinPickUpSound.Play();
+            }
+            else
+            {
+                CoinPickUpSound.Play();
+            }
         }
     }
 }
