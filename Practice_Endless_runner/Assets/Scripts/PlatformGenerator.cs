@@ -26,6 +26,14 @@ public class PlatformGenerator : MonoBehaviour
     public float maxHeightChange;
     private float heightChange;
 
+    private CopperCoinGenerator theCopperCoinGenerator;
+    private SilverCoinGenerator theSilverCoinGenerator;
+    private GoldCoinGenerator theGoldCoinGenerator;
+
+    public float randomCopperCoinThreshold;
+    public float randomSilverCoinThreshold;
+    public float randomGoldCoinThreshold;
+
     // Use this for initialization
     void Start()
     {
@@ -40,6 +48,10 @@ public class PlatformGenerator : MonoBehaviour
 
         minHeight = transform.position.y;
         maxHeight = maxHeightPoint.position.y;
+
+        theCopperCoinGenerator = FindObjectOfType<CopperCoinGenerator>();
+        theSilverCoinGenerator = FindObjectOfType<SilverCoinGenerator>();
+        theGoldCoinGenerator = FindObjectOfType<GoldCoinGenerator>();
     }
 
     // Update is called once per frame
@@ -76,8 +88,25 @@ public class PlatformGenerator : MonoBehaviour
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);
 
+            if (Random.Range(0f, 150f) < randomCopperCoinThreshold)
+            {
+                theCopperCoinGenerator.SpawnCopperCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+            }
+
+            if (Random.Range(0f, 300f) < randomSilverCoinThreshold)
+            {
+                theSilverCoinGenerator.SpawnSilverCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+            }
+
+
+            if (Random.Range(0f, 500f) < randomGoldCoinThreshold)
+            {
+                theGoldCoinGenerator.SpawnGoldCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+            }
+
             transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2), transform.position.y, transform.position.z);
 
+          
         }
     }
 }

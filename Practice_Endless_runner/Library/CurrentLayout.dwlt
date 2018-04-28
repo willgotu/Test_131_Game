@@ -108,10 +108,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
-  m_MinSize: {x: 913, y: 442}
-  m_MaxSize: {x: 22008, y: 10000}
+  m_MinSize: {x: 917, y: 442}
+  m_MaxSize: {x: 22012, y: 10021}
   vertical: 0
-  controlID: 5515
+  controlID: 14155
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 5516
+  controlID: 14091
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,7 +187,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 15}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -366,14 +366,14 @@ MonoBehaviour:
     width: 736
     height: 339
   m_SceneLighting: 1
-  lastFramingTime: 9366.576445217392
+  lastFramingTime: 22594.433365333334
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 354.02557, y: 261.60223, z: -4.3084307}
+    m_Target: {x: 10.163658, y: -0.61860776, z: -0.031291876}
     speed: 2
-    m_Value: {x: 354.02557, y: 261.60223, z: -4.3084307}
+    m_Value: {x: 10.163658, y: -0.61860776, z: -0.031291876}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -400,9 +400,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 463.01743
+    m_Target: 22
     speed: 2
-    m_Value: 463.01743
+    m_Value: 22
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -512,9 +512,9 @@ MonoBehaviour:
     height: 710
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4e24f5ff
-    m_LastClickedID: -711602
-    m_ExpandedIDs: 4424f5ff90fbffff000000005a29000090290000fa290000
+    m_SelectedIDs: 6ce5faff
+    m_LastClickedID: -334484
+    m_ExpandedIDs: 721efffffa85ffffa0fbffff000000005e290000d6290000e2290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -575,19 +575,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/Art
   m_ViewMode: 1
   m_StartGridSize: 78
   m_LastFolders:
-  - Assets
+  - Assets/Art
   m_LastFoldersGridSize: 78
   m_LastProjectPath: C:\Users\Willi\OneDrive\Documents\GitHub\Test_131_Game\Practice_Endless_runner
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a0270000
-    m_LastClickedID: 10144
-    m_ExpandedIDs: 00000000a027000000ca9a3bffffff7f
+    m_SelectedIDs: 64270000
+    m_LastClickedID: 10084
+    m_ExpandedIDs: 000000004c27000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -615,7 +615,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a027000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000004c27000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -643,7 +643,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: da28000000000000
+    m_ExpandedInstanceIDs: da28000000000000fa2a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
