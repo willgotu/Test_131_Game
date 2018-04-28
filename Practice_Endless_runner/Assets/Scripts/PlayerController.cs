@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour {
     public float jumpTime;
     private float jumpTimeCounter;
 
+    private bool stoppedJumpinng;
+    private bool canDoubleJump;
+
     private Rigidbody2D myRigidBody;
 
     public bool grounded;
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour {
         moveSpeedStore = moveSpeed;
         speedMilestoneCountStore = speedMilestoneCount;
         speedIncreaseMilestoneStore = speedIncreaseMilestone;
+        stoppedJumpinng = true;
 	}
 	
 	// Update is called once per frame
@@ -71,7 +75,15 @@ public class PlayerController : MonoBehaviour {
             if(grounded) // If the player is touching the ground, the player can jump
             {
                 myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
+                stoppedJumpinng = false;
             }   
+            if(!grounded && canDoubleJump)
+            {
+                myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
+                jumpTimeCounter = jumpTime;
+                stoppedJumpinng = false;
+                canDoubleJump = false;
+            }
         }
 
         if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
@@ -83,14 +95,16 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
+        if((Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)) && !stoppedJumpinng)
         {
             jumpTimeCounter = 0;
+            stoppedJumpinng = true;
         }
 
         if(grounded)
         {
             jumpTimeCounter = jumpTime;
+            canDoubleJump = true;
         }
 
         myAnimator.SetFloat("Speed", myRigidBody.velocity.x);
