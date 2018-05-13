@@ -2,10 +2,10 @@ fileFormatVersion: 2
 guid: 5ccd7042bf006db458bbb7f7536c9c63
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player_idle
-    21300002: Player_walk_1
-    21300004: Player_walk_2
-    21300006: Player_jump
+    21300000: player_walk_1
+    21300002: player_walk_2
+    21300004: player_idle
+    21300006: player_jump
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -65,7 +65,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -76,7 +76,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -87,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,11 +97,31 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_idle
+      name: player_walk_1
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 1190
+        width: 119
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8c07694134db54bb3b145035357475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_walk_2
       rect:
         serializedVersion: 2
         x: 583
-        y: 1847
+        y: 1644
         width: 121
         height: 199
       alignment: 7
@@ -111,38 +131,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f405e20b3dbf2074db97701dbb511770
+      spriteID: 0d7a1768c7bd64749ba59509e4d5870f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_walk_1
+      name: player_idle
       rect:
         serializedVersion: 2
-        x: 677
-        y: 1191
-        width: 121
-        height: 205
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8254f42dee30a92498f02ffb321ef2a6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_walk_2
-      rect:
-        serializedVersion: 2
-        x: 584
-        y: 1643
-        width: 120
+        x: 583
+        y: 1846
+        width: 124
         height: 201
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -151,19 +151,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 136260b6f17f8b041b45f1e1b5850d56
+      spriteID: 9b78e6ba441613443aa5cb1c4f474181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_jump
+      name: player_jump
       rect:
         serializedVersion: 2
         x: 417
-        y: 210
-        width: 149
-        height: 177
+        y: 208
+        width: 148
+        height: 180
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,7 +171,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e08f198f8f15e3459a73ad383b77c2e
+      spriteID: e909ed951b3f8734a9ce692f038dd627
       vertices: []
       indices: 
       edges: []
@@ -179,7 +179,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 22f232d2f2c5e1749b8a8354ed7619b4
+    spriteID: 2c426996db492b841bad9defe3a66b79
     vertices: []
     indices: 
     edges: []
