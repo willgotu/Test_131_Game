@@ -26,10 +26,11 @@ public class GameManager : MonoBehaviour {
         playerStartPoint = thePlayer.transform.position; // Finds the initial position the player starts
         theScoreManager = FindObjectOfType<ScoreManager>();
         isDead = false;
-        if (!isDead)
+     /*   if (!isDead)
         {
+
             thePlayer.backgroundMusic.Play();
-        }
+        }*/
 	}
 	
 	// Update is called once per frame

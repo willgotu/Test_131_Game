@@ -37,15 +37,23 @@ public class PlayerController : MonoBehaviour {
 
     public AudioSource jumpSound;
     public AudioSource deathSound;
+    public AudioSource introMusic;
     public AudioSource backgroundMusic;
 
-   // public bool isDead;
+    // public bool isDead;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
+       // if (!theGameManager.isDead)
+        //{
+            introMusic.Play();
+            backgroundMusic.PlayDelayed(1.5f);
+        //}
+
         myRigidBody = GetComponent<Rigidbody2D>();
 
-      //  myCollider = GetComponent<Collider2D>();
+        //  myCollider = GetComponent<Collider2D>();
 
         myAnimator = GetComponent<Animator>();
 
@@ -58,10 +66,8 @@ public class PlayerController : MonoBehaviour {
         speedIncreaseMilestoneStore = speedIncreaseMilestone;
         stoppedJumpinng = true;
 
-        if (!theGameManager.isDead)
-        {
-            backgroundMusic.Play();
-        }
+      
+        
     }
 	
 	// Update is called once per frame

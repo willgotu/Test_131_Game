@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathMenu : MonoBehaviour {
 
     public string mainMenuLevel;
 
     public AudioSource buttonSound;
+    public AudioSource introMusic;
     public AudioSource backgroundMusic;
 
     //public PlayerController thePlayerController;
@@ -14,7 +16,8 @@ public class DeathMenu : MonoBehaviour {
     public void RestartGame()
     {
         buttonSound.Play();
-        backgroundMusic.Play();
+        introMusic.Play();
+        backgroundMusic.PlayDelayed(1.5f);
         FindObjectOfType<GameManager>().Reset();
         
     }
@@ -22,6 +25,7 @@ public class DeathMenu : MonoBehaviour {
     public void QuitToMain()
     {
         buttonSound.Play();
-        Application.LoadLevel(mainMenuLevel);
+        //Application.LoadLevel(mainMenuLevel);
+        SceneManager.LoadScene("Main Menu");
     }
 }
