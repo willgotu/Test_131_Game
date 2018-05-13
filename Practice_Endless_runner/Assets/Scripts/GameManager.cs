@@ -16,11 +16,20 @@ public class GameManager : MonoBehaviour {
 
     public DeathMenu theDeathScreen;
 
+    public bool powerupReset;
+
+    public bool isDead = false;
+
 	// Use this for initialization
 	void Start () {
         platformStartPoint = platformGenerator.position; // Finds the initial position the platform is generated
         playerStartPoint = thePlayer.transform.position; // Finds the initial position the player starts
         theScoreManager = FindObjectOfType<ScoreManager>();
+        isDead = false;
+        if (!isDead)
+        {
+            thePlayer.backgroundMusic.Play();
+        }
 	}
 	
 	// Update is called once per frame
@@ -32,13 +41,15 @@ public class GameManager : MonoBehaviour {
     {
         theScoreManager.scoreIncreasing = false;
         thePlayer.gameObject.SetActive(false);
-
+       
         theDeathScreen.gameObject.SetActive(true);
         //StartCoroutine("RestartGameCo");
+     
     }
 
     public void Reset()
     {
+
         theDeathScreen.gameObject.SetActive(false);
         platformList = FindObjectsOfType<PlatformDestroyer>();
         for (int i = 0; i < platformList.Length; i++)
@@ -51,6 +62,8 @@ public class GameManager : MonoBehaviour {
 
         theScoreManager.scoreCount = 0;
         theScoreManager.scoreIncreasing = true;
+
+        powerupReset = true;
     }
 
    /* public IEnumerator RestartGameCo()

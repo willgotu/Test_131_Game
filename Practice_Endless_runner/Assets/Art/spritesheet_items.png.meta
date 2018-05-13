@@ -1,15 +1,15 @@
 fileFormatVersion: 2
 guid: 9745d15c8bb0c1f448bc6f21b272769f
-timeCreated: 1524893547
+timeCreated: 1526202902
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: spritesheet_items_0
     21300002: spritesheet_items_1
     21300004: spritesheet_items_2
-    21300006: spritesheet_items_3
+    21300006: DangerGone
     21300008: spritesheet_items_4
-    21300010: spritesheet_items_5
+    21300010: DoublePoints
     21300012: spritesheet_items_6
     21300014: spritesheet_items_7
     21300016: spritesheet_items_8
@@ -129,7 +129,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_items_3
+      name: DangerGone
       rect:
         serializedVersion: 2
         x: 669
@@ -157,13 +157,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spritesheet_items_5
+      name: DoublePoints
       rect:
         serializedVersion: 2
         x: 669
         y: 424
         width: 70
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

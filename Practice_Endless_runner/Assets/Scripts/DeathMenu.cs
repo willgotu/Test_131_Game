@@ -7,11 +7,16 @@ public class DeathMenu : MonoBehaviour {
     public string mainMenuLevel;
 
     public AudioSource buttonSound;
+    public AudioSource backgroundMusic;
+
+    //public PlayerController thePlayerController;
 
     public void RestartGame()
     {
-        buttonSound.Play(); 
+        buttonSound.Play();
+        backgroundMusic.Play();
         FindObjectOfType<GameManager>().Reset();
+        
     }
 
     public void QuitToMain()

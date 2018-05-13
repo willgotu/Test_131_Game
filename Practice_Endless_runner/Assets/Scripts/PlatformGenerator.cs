@@ -34,6 +34,13 @@ public class PlatformGenerator : MonoBehaviour
     public float randomSilverCoinThreshold;
     public float randomGoldCoinThreshold;
 
+    public float randomSpikeThreshold;
+    public ObjectPooler theSpikePooler;
+
+    public float powerupHeight;
+    public ObjectPooler powerupPool;
+    public float powerupThreshold;
+
     // Use this for initialization
     void Start()
     {
@@ -79,6 +86,15 @@ public class PlatformGenerator : MonoBehaviour
                 heightChange = minHeight;
             }
 
+
+            if(Random.Range(0f, 100f) < powerupThreshold)
+            {
+                GameObject newPowerup = powerupPool.GetPooledObject();
+
+                newPowerup.transform.position = transform.position + new Vector3(distanceBetween / 2f, Random.Range(powerupHeight / 2, powerupHeight), 0f);
+
+                newPowerup.SetActive(true);
+            }
             //Instantiate(/*thePlatform*/ thePlatforms[platformSelector], transform.position, transform.rotation); 
 
             /* Used to generate platforms in the game world */
@@ -104,6 +120,18 @@ public class PlatformGenerator : MonoBehaviour
                 theGoldCoinGenerator.SpawnGoldCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
             }
 
+            if (Random.Range(0f, 150f) < randomSpikeThreshold)
+            {
+                GameObject newSpike = theSpikePooler.GetPooledObject();
+
+                float spikeXPosition = Random.Range(-platformWidths[platformSelector] / 2f + 1f, platformWidths[platformSelector] / 2f - 1f);
+
+                Vector3 spikePosition = new Vector3(spikeXPosition, 0.5f, 0f);
+
+                newSpike.transform.position = transform.position + spikePosition;
+                newSpike.transform.rotation = transform.rotation;
+                newSpike.SetActive(true);
+            }
             transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2), transform.position.y, transform.position.z);
 
           

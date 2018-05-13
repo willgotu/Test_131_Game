@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour {
 
     public AudioSource jumpSound;
     public AudioSource deathSound;
+    public AudioSource backgroundMusic;
+
+   // public bool isDead;
 
 	// Use this for initialization
 	void Start () {
@@ -54,7 +57,12 @@ public class PlayerController : MonoBehaviour {
         speedMilestoneCountStore = speedMilestoneCount;
         speedIncreaseMilestoneStore = speedIncreaseMilestone;
         stoppedJumpinng = true;
-	}
+
+        if (!theGameManager.isDead)
+        {
+            backgroundMusic.Play();
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -114,12 +122,15 @@ public class PlayerController : MonoBehaviour {
 
         myAnimator.SetFloat("Speed", myRigidBody.velocity.x);
         myAnimator.SetBool("Grounded", grounded);
-	}
+
+    }
     
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "killbox")
         {
+            backgroundMusic.Stop();
+            theGameManager.isDead = true;
             theGameManager.RestartGame();
             moveSpeed = moveSpeedStore;
             speedMilestoneCount = speedMilestoneCountStore;
