@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour {
         myAnimator.SetBool("Grounded", grounded);
 	}
     
-    void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionEnter2D(Collision2D other)  
     {
         if (other.gameObject.tag == "killbox")
         {

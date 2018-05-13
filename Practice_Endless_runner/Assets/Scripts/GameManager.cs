@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour {
 
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour {
     private ScoreManager theScoreManager;
 
     public DeathMenu theDeathScreen;
+
+    public HighScoreManager highScoreStuff;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +37,7 @@ public class GameManager : MonoBehaviour {
         thePlayer.gameObject.SetActive(false);
 
         theDeathScreen.gameObject.SetActive(true);
+        
         //StartCoroutine("RestartGameCo");
     }
 
